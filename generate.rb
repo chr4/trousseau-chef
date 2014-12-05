@@ -49,6 +49,11 @@ class GenerateRunner < Boson::Runner
       # Retrieve all requested items from trousseau
       data_bag = populate_hash(config['data_bag'], item)
 
+      if data_bag.empty?
+        puts 'No data bag elements found.'
+        return
+      end
+
       # Use item as id, unless --id is given, or manually specified in yaml
       data_bag['id'] ||= options['id'] ? options['id'] : item
 
