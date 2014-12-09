@@ -81,8 +81,9 @@ private
       if value.is_a?(Hash)
         res[key] = populate_hash(value, item)
       else
-        # Replace %s in value string with the current item
-        res[key] = `#{@@trousseau} get #{value % item}`.chomp
+        # Replace %s in value string with the current item.
+        # Redirect stderr to /dev/null, to prevent "key not found" messages from being displayed
+        res[key] = `#{@@trousseau} get #{value % item} 2> /dev/null`.chomp
       end
     end
 
