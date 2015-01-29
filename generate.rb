@@ -57,6 +57,10 @@ class GenerateRunner < Boson::Runner
       # Use item as id, unless --id is given, or manually specified in yaml
       data_bag['id'] ||= options['id'] ? options['id'] : item
 
+      # Dots are not valid in a data bag id. Automatically replace them with underscores
+      # See: https://github.com/atomic-penguin/cookbook-certificate/pull/38
+      data_bag['id'] = data_bag['id'].gsub('.', '_')
+
       # Generate a data_bag_secret unless it is already present
       generate_data_bag_secret(item) unless list.match /^#{item}\/data_bag_secret/
 
