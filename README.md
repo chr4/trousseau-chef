@@ -1,6 +1,11 @@
 trousseau-chef
 ==============
 
+*NOTE: I've migrated from Trousseau (a project that seems to be abandoned) to
+[pass](http://passwordstore.org). This script was ported to
+[pass-chef](https://github.com/chr4/pass-chef) to be used with [pass](http://passwordstore.org). I
+encourage you to migrate to pass, too*
+
 Small script (configurable by a YAML file), to manage Chef encrypted data bags with
 [Trousseau](https://github.com/oleiade/trousseau)
 
