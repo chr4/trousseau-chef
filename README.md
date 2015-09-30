@@ -86,7 +86,7 @@ When generating/uploading a data bag, you can also specify the data bag id manua
 `--id` parameter
 
 ```shell
-$ ./generate.rb certificates www.example.com --id example
+$ ./trousseau-chef.rb certificates www.example.com --id example
 Updated data_bag_item[certificates:example]
 ```
 
@@ -117,7 +117,7 @@ ssh_keypairs:
   # Manually specify trousseau store
   trousseau_store: "ssh_keypairs.asc"
 
-  # Add a description (displayed when using "./generate.rb help"
+  # Add a description (displayed when using "./trousseau-chef.rb help"
   description: "Generate ssh keypairs"
 
   # Customize the data_bag_secret filename. When using the --target flag,
@@ -127,7 +127,7 @@ ssh_keypairs:
   # Specify how the data bag hash looks like
   # The "%s" placeholder will be replaced with the item name
   #
-  # When using "./generate.rb ssh_keypairs example",
+  # When using "./trousseau-chef.rb ssh_keypairs example",
   # the script will look for the ssh private and public keys in the Trousseau store
   #
   # - example/id_rsa
